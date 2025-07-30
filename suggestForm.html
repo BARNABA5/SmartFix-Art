@@ -36,7 +36,7 @@ form {
 
     input, textarea {
       width: 100%;
-      padding: 12px;
+      padding: 60px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -125,7 +125,7 @@ form {
       return;
     }
 
-    const message = `" You’ve reached the SmartFix-studio hotline ,,, Barney speaking": ${suggestion}`;
+    const message = `" You’ve reached the SmartFix-studio hotline": ${suggestion}`;
 
     // 🔊 Voice output
     const utterance = new SpeechSynthesisUtterance(message);
