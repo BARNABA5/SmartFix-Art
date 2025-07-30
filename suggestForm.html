@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Suggest Idea</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background:url('posters/smartfix-poster.png') no-repeat center center fixed;
+      background-size:unset;
+      color: #333;
+      text-align: center;
+      padding: 40px 20px;
+      margin: 0;
+    }
+
+    h2 {
+      color: #fd0000;
+      font-size: 24px;
+    }
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.2); /* Light transparent white */
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow for contrast */
+  backdrop-filter: blur(10px); /* Optional: adds a blur effect behind the form */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Soft border */
+}
+
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: darkgreen;
+    }
+
+    a.home-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: rgb(0, 9, 128);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: sans-serif;
+      font-size: 16px;
+    }
+
+    @media (max-width: 500px) {
+      h2 {
+        font-size: 20px;
+      }
+
+      input, textarea, button {
+        font-size: 14px;
+      }
+
+      button {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>💬 Suggest a Poster Idea</h2>
+
+ 
+
+
+  <form id="suggestForm">
+  <textarea id="suggestion" placeholder="Your Suggestion..." required>""Hi there! 😊 Thanks for reaching out to SmartFix-studio! Tell me what’s up, and let’s sort it out — fast & easy! 🚀"
+
+"</textarea><br>
+  <button type="submit">📤 Submit</button>
+
+</form>
+<a href="index.html" class="home-btn">🏠 Home</a>
+
+<script>
+  document.getElementById("suggestForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const suggestion = document.getElementById("suggestion").value.trim();
+
+    if (!suggestion) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const message = `" You’ve reached the SmartFix-studio hotline ,,, Barney speaking": ${suggestion}`;
+
+    // 🔊 Voice output
+    const utterance = new SpeechSynthesisUtterance(message);
+    utterance.lang = "en-US"; // You can change to "en-UK", "fr-FR", etc.
+    speechSynthesis.speak(utterance);
+
+    // 📲 WhatsApp link
+    const encodedMsg = encodeURIComponent("Hello SmartFix! 👋\n💬 Suggestion: " + suggestion);
+    const phone = "254706876154";
+    window.open(`https://wa.me/${phone}?text=${encodedMsg}`, "_blank");
+  });
+</script>
+
+
+
+</body>
+</html>
