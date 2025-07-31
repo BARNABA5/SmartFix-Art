@@ -6,16 +6,19 @@ body {
   padding: 0;
   text-align: center;
 }
+
 header {
   padding: 20px;
   background: #1a1a2e;
 }
+
 .gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
 }
+
 .poster {
   background: #222;
   margin: 10px;
@@ -23,18 +26,22 @@ header {
   border-radius: 10px;
   max-width: 300px;
 }
+
 .poster img {
   max-width: 100%;
   border-radius: 10px;
 }
+
 a {
   color: #00bcd4;
   text-decoration: none;
 }
+
 .suggest {
   padding: 30px;
   background: #16213e;
 }
+
 form input, form textarea {
   width: 80%;
   margin: 10px auto;
@@ -42,6 +49,7 @@ form input, form textarea {
   border-radius: 5px;
   border: none;
 }
+
 form button {
   padding: 10px 20px;
   border: none;
@@ -50,19 +58,31 @@ form button {
   border-radius: 5px;
   cursor: pointer;
 }
+
 footer {
   padding: 10px;
   font-size: 0.8em;
   background: #1a1a2e;
 }
 
-/* for the posters showcase */
-.g.gallery-carousel {
+/* Phone frame style */
+.phone-frame {
+  width: 360px;
+  height: 640px;
+  margin: 40px auto;
+  border: 10px solid #333;
+  border-radius: 40px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  background: #000;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Carousel inside the phone */
+.gallery-carousel {
   overflow: hidden;
   width: 100%;
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px 0;
+  height: 100%;
   position: relative;
 }
 
@@ -97,4 +117,14 @@ footer {
   }
 }
 
+/* Responsive adjustment for small screens */
+@media screen and (max-width: 400px) {
+  .phone-frame {
+    width: 90%;
+    height: 500px;
+  }
 
+  .poster {
+    width: 260px;
+  }
+}
