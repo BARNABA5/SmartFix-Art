@@ -115,6 +115,7 @@ form {
 <a href="index.html" class="home-btn">🏠 Home</a>
 
 <script>
+<script>
   document.getElementById("suggestForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -125,18 +126,26 @@ form {
       return;
     }
 
-    const message = `" You’ve reached the SmartFix-studio hotline": ${suggestion}`;
+    const message = `"You’ve reached the SmartFix-studio hotline": ${suggestion}`;
 
     // 🔊 Voice output
     const utterance = new SpeechSynthesisUtterance(message);
-    utterance.lang = "en-US"; // You can change to "en-UK", "fr-FR", etc.
+    utterance.lang = "en-US";
     speechSynthesis.speak(utterance);
 
-    // 📲 WhatsApp link
-    const encodedMsg = encodeURIComponent("Hello SmartFix! 👋\n💬 Suggestion: " + suggestion);
-    const phone = "254706876154";
-    window.open(`https://wa.me/${phone}?text=${encodedMsg}`, "_blank");
+    // Calculate estimated duration: average ~400ms per word
+    const wordCount = message.split(" ").length;
+    const duration = wordCount * 400; // 400ms per word
+
+    // 📲 Delay WhatsApp link until voice finishes
+    setTimeout(() => {
+      const encodedMsg = encodeURIComponent("Hello SmartFix! 👋\n💬 Suggestion: " + suggestion);
+      const phone = "254706876154";
+      window.open(`https://wa.me/${phone}?text=${encodedMsg}`, "_blank");
+    }, duration);
   });
+</script>
+
 </script>
 
 
