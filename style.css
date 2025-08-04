@@ -93,6 +93,13 @@ footer {
   }
   animation: slide 5s linear infinite;
 }
+.carousel-track {
+  display: flex;
+  width: 100%;
+  animation: slide 5s linear infinite; /* Faster slide */
+}
+
+
 
 
 /* Responsive adjustment for small screens */
