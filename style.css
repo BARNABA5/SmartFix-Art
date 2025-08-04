@@ -20,19 +20,21 @@ header {
 }
 
 .poster {
-  flex: 0 0 100%;
-  width: 100%;
-  margin: 0;
+  flex: 0 0 auto;
+  width: 240px;
+  margin: 10px;
   padding: 10px;
   box-sizing: border-box;
   background: #fff;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  color: #000;
 }
 
 .poster img {
   width: 100%;
+  height: auto;
   border-radius: 8px;
 }
 
@@ -57,7 +59,7 @@ footer {
   background: #1a1a2e;
 }
 
-/* Phone frame style */
+/* Phone frame */
 .phone-frame {
   width: 360px;
   height: 640px;
@@ -70,7 +72,7 @@ footer {
   position: relative;
 }
 
-/* Carousel inside the phone */
+/* Carousel inside phone */
 .gallery-carousel {
   overflow: hidden;
   width: 100%;
@@ -80,29 +82,20 @@ footer {
 
 .carousel-track {
   display: flex;
-  width: 100%;
-  animation: slide 25s linear infinite;
+  width: max-content;
+  animation: slide 8s linear infinite;
 }
 
 @keyframes slide {
   0% {
-    transform: translateX(10%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-90%);
+    transform: translateX(-50%);
   }
-  animation: slide 5s linear infinite;
-}
-.carousel-track {
-  display: flex;
-  width: 100%;
-  animation: slide 5s linear infinite; /* Faster slide */
 }
 
-
-
-
-/* Responsive adjustment for small screens */
+/* Responsive */
 @media screen and (max-width: 400px) {
   .phone-frame {
     width: 90%;
@@ -110,6 +103,6 @@ footer {
   }
 
   .poster {
-    width: 260px;
+    width: 200px;
   }
 }
