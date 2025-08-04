@@ -91,7 +91,9 @@ footer {
   100% {
     transform: translateX(-100%);
   }
+  animation: slide 5s linear infinite;
 }
+
 
 /* Responsive adjustment for small screens */
 @media screen and (max-width: 400px) {
