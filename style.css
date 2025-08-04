@@ -1,44 +1,4 @@
-.phone-frame {
-  width: 100%;
-  max-width: 400px; /* Optional: sets phone frame size for mobile look */
-  margin: 0 auto;
-  padding: 1rem;
-  background: #1a1a1a;
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  overflow-x: auto;
-}
-
-.gallery-carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 1rem;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 16px;
-}
-
-.poster {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: 250px;
-  background: #222;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.poster img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: contain; /* Keeps image inside frame without stretching */
-}
+/* Body styling */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -68,7 +28,7 @@ header p {
 
 /* Phone Frame */
 .phone-frame {
-  max-width: 420px;
+  width: 100%;
   margin: 1rem auto;
   padding: 1rem;
   background-color: #1e1e2f;
@@ -77,7 +37,7 @@ header p {
   overflow-x: auto;
 }
 
-/* Carousel */
+/* Gallery Carousel */
 .gallery-carousel {
   display: flex;
   overflow-x: auto;
@@ -85,12 +45,14 @@ header p {
   padding-bottom: 1rem;
 }
 
+/* Track inside the carousel */
 .carousel-track {
   display: flex;
   gap: 16px;
+  flex-wrap: nowrap;
 }
 
-/* Poster Card */
+/* Each Poster */
 .poster {
   flex: 0 0 auto;
   width: 240px;
@@ -109,20 +71,23 @@ header p {
   box-shadow: 0 6px 20px rgba(0, 255, 255, 0.25);
 }
 
+/* Poster Image */
 .poster img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  height: 200px;
   object-fit: contain;
+  border-radius: 10px;
   margin-bottom: 10px;
 }
 
+/* Poster title */
 .poster h3 {
   font-size: 1rem;
   color: #00ffe7;
   margin: 0.5rem 0;
 }
 
+/* Download Button */
 .poster a {
   display: inline-block;
   padding: 6px 12px;
