@@ -70,4 +70,13 @@ downloadLinks.forEach(link => {
       window.open(`https://wa.me/${phone}?text=${encodedMsg}`, "_blank");
     }, duration);
   });
+function forceDownload(url) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.setAttribute("download", "");
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
 
