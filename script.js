@@ -6,6 +6,7 @@ function playThankYou() {
   }
   showConfetti(); // trigger confetti too
 }
+
 function showConfetti() {
   confetti({
     particleCount: 100,
@@ -13,16 +14,31 @@ function showConfetti() {
     origin: { y: 0.6 }
   });
 }
+
 const downloadLinks = document.querySelectorAll(".poster a");
 const loadingScreen = document.getElementById("loading-screen");
 
 downloadLinks.forEach(link => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
+
+    playThankYou(); // Play sound + confetti
     loadingScreen.style.display = "flex";
+
+    const fileUrl = link.getAttribute("href");
+    const fileName = link.getAttribute("download") || "poster-download";
+
     setTimeout(() => {
       loadingScreen.style.display = "none";
-      window.location.href = link.href;
-    }, 3000);
+
+      // Create a temporary invisible download link
+      const tempLink = document.createElement("a");
+      tempLink.href = fileUrl;
+      tempLink.download = fileName;
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      document.body.removeChild(tempLink);
+
+    }, 3000); // wait 3 seconds
   });
 });
