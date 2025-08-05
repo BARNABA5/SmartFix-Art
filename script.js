@@ -1,4 +1,4 @@
-<script>
+
   window.addEventListener('load', () => {
     const music = document.getElementById('backgroundMusic');
 
@@ -19,5 +19,5 @@
       }
     });
   });
-</script>
+
 
