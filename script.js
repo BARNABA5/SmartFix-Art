@@ -42,3 +42,8 @@ downloadLinks.forEach(link => {
     }, 3000); // wait 3 seconds
   });
 });
+<div id="loading-screen" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; color: white; justify-content: center; align-items: center; flex-direction: column;">
+  <img src="icon.png" alt="Loading..." style="width: 150px; margin-bottom: 1rem;">
+  <p style="font-size: 1.2rem; animation: pulse 1s infinite;">Preparing your download...</p>
+</div>
+
