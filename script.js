@@ -42,8 +42,32 @@ downloadLinks.forEach(link => {
     }, 3000); // wait 3 seconds
   });
 });
-<div id="loading-screen" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; color: white; justify-content: center; align-items: center; flex-direction: column;">
-  <img src="icon.png" alt="Loading..." style="width: 150px; margin-bottom: 1rem;">
-  <p style="font-size: 1.2rem; animation: pulse 1s infinite;">Preparing your download...</p>
-</div>
+  document.getElementById("suggestForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const suggestion = document.getElementById("suggestion").value.trim();
+
+    if (!suggestion) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const message = `"You’ve reached the SmartFix-studio hotline": ${suggestion}`;
+
+    // 🔊 Voice output
+    const utterance = new SpeechSynthesisUtterance(message);
+    utterance.lang = "en-US";
+    speechSynthesis.speak(utterance);
+
+    // Calculate estimated duration: average ~400ms per word
+    const wordCount = message.split(" ").length;
+    const duration = wordCount * 400; // 400ms per word
+
+    // 📲 Delay WhatsApp link until voice finishes
+    setTimeout(() => {
+      const encodedMsg = encodeURIComponent("Hello SmartFix! 👋\n💬 Suggestion: " + suggestion);
+      const phone = "254706876154";
+      window.open(`https://wa.me/${phone}?text=${encodedMsg}`, "_blank");
+    }, duration);
+  });
 
