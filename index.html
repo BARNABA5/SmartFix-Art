@@ -258,6 +258,25 @@
     <p>&copy; 2025 Barney enterprise. All rights reserved.</p>
   </footer>
  <link rel="javacript" href="script.js"/>
+<script>
+  const music = document.getElementById("backgroundMusic");
+
+  // Try to autoplay after load
+  window.addEventListener('load', () => {
+    const tryAutoPlay = () => {
+      music.play().then(() => {
+        console.log("Music playing.");
+      }).catch((err) => {
+        console.log("Autoplay blocked. Waiting for user interaction.");
+      });
+    };
+
+    tryAutoPlay();
+
+    // Try again on first user interaction
+    document.body.addEventListener('click', tryAutoPlay, { once: true });
+  });
+</script>
 
 
 
