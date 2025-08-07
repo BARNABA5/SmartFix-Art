@@ -13,3 +13,14 @@ function toggleMusic() {
     toggleBtn.textContent = '🔊 Play Music';
   }
 }
+ // Add confetti effect on any .poster a (download) button
+  document.querySelectorAll('.poster a').forEach(button => {
+    button.addEventListener('click', () => {
+      // Show confetti for 1 second
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+    });
+  });
