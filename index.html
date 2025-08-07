@@ -14,10 +14,23 @@
   <!-- Background Audio -->
  <!-- Music & Toggle -->
   <audio id="backgroundMusic" loop>
-    <source src="chill Beats_Instrumental Magic.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <button id="musicToggleBtn" onclick="toggleMusic()">🔊 Play Music</button>
+  <source src="chill Beats_Instrumental Magic.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<button id="musicToggleBtn" onclick="toggleMusic()" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+">
+  🔊 Play Music
+</button>
   <br>
 
 </head>
