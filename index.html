@@ -11,10 +11,25 @@
   <title>Barney Creatives</title>
   <link rel="stylesheet" href="style.css" />
  <link rel="javacript" href="script.js"/>
-   <audio id="backgroundMusic" autoplay loop>
-  <source src="Chill Beats_ Instrumental Magic.mp3" type="audio/mpeg">
+  <!-- Background Audio -->
+<audio id="backgroundMusic" loop>
+  <source src="smartfix-bg.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+
+<!-- Music Toggle Button -->
+<button id="musicToggleBtn" onclick="toggleMusic()" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 999;
+">🔊 Play Music</button>
 
 </head>
 
