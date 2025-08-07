@@ -1,31 +1,7 @@
-<script>
-  const music = document.getElementById('backgroundMusic');
+ const music = document.getElementById('backgroundMusic');
   const toggleBtn = document.getElementById('musicToggleBtn');
-
   let isPlaying = false;
 
-  // Try to autoplay on load (some browsers will block it)
-  window.addEventListener('load', () => {
-    music.play().then(() => {
-      isPlaying = true;
-      toggleBtn.textContent = '🔇 Pause Music';
-    }).catch(() => {
-      // Autoplay blocked - wait for user interaction
-      console.log("Autoplay blocked, waiting for user click...");
-    });
-  });
-
-  // Force play after first user click anywhere
-  document.body.addEventListener('click', () => {
-    if (!isPlaying) {
-      music.play().then(() => {
-        isPlaying = true;
-        toggleBtn.textContent = '🔇 Pause Music';
-      });
-    }
-  }, { once: true }); // only once
-
-  // Toggle Play/Pause button function
   function toggleMusic() {
     if (music.paused) {
       music.play();
@@ -37,4 +13,15 @@
       toggleBtn.textContent = '🔊 Play Music';
     }
   }
-</script>
+
+  // Try to play on first interaction
+  document.body.addEventListener('click', () => {
+    if (!isPlaying) {
+      music.play().then(() => {
+        isPlaying = true;
+        toggleBtn.textContent = '🔇 Pause Music';
+      }).catch(err => {
+        console.log("Browser blocked autoplay:", err);
+      });
+    }
+  }, { once: true });
